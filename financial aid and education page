@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+
+class FinancialAidPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Financial Aid & Education')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          // Your financial aid and education UI here,
+          ElevatedButton(
+            onPressed: () {
+              // Navigate back to the previous page (Main Menu)
+              Navigator.pop(context);
+            },
+            child: Text('Go Back to Main Menu'),
+          ),
+          // Add buttons to navigate to other pages as needed
+        ],
+      ),
+    );
+  }
+}
