@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+class FindBasicServicesPage extends StatelessWidget {
+  final List<String> serviceImages = [
+    'https://example.com/service_image1.jpg',
+    'https://example.com/service_image2.jpg',
+    'https://example.com/service_image3.jpg',
+  ];
+
+  final List<String> serviceDescriptions = [
+    "Poverty is a global challenge that affects millions of people. It's crucial for both common individuals and the wealthy to join hands in the fight against poverty.",
+    "Common people can help by volunteering at local food banks, shelters, and educational programs. Your time and skills can make a significant difference in someone's life.",
+    "The wealthy can contribute by donating to organizations that provide financial aid, scholarships, and grants. Your generosity can pave the way for underprivileged individuals to access education and job opportunities.",
+    "Let's work together to create a world where poverty is no longer a barrier to a better life. Explore the services below to find ways to get involved.",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Find Basic Services')),
+      body: ListView.builder(
+        itemCount: 6,
+        itemBuilder: (BuildContext context, int index) {
+          final random = Random();
+          final imageIndex = random.nextInt(serviceImages.length);
+
+          return ListTile(
+            leading: Image.network(serviceImages[imageIndex]),
+            title: Text('Service ${index + 1}'),
+            subtitle: Text(serviceDescriptions[index % serviceDescriptions.length]),
+            trailing: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ServiceDetailsPage(serviceIndex: index),
+                  ),
+                );
+              },
+              child: Text('Details'),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
