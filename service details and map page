@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+
+class ServiceDetailsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Service Details & Map')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          // Your service details and map UI here,
+          ElevatedButton(
+            onPressed: () {
+              // Navigate back to the previous page (Find Basic Services)
+              Navigator.pop(context);
+            },
+            child: Text('Go Back to Find Basic Services'),
+          ),
+          // Add buttons to navigate to other pages as needed
+        ],
+      ),
+    );
+  }
+}
